@@ -96,6 +96,7 @@ for sub in range(len(sub_list)):
     gm.fit(fc, reference= gm_group, sparsity=thre[i])
     np.savetxt('../../results/grad/individual/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_raw.txt', gm.gradients_)
     np.savetxt('../../results/grad/individual/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_aligned.txt', gm.aligned_)
+    np.savetxt('../../results/grad/individual/'+sub_list[sub]+'/lambdas_sparsity_'+str(thre[i])+'_'+space+'_mmp.txt', gm.lambdas_)
     # asymmetry 2 patterns
     gm_ref=np.loadtxt('../../results/grad/group_grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_lh.txt')
     ## lh  
@@ -108,6 +109,10 @@ for sub in range(len(sub_list)):
     gm.fit(fc[180:], reference= gm_ref, sparsity=thre[i])
     np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_rh_raw.txt', gm.gradients_)
     np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_rh_aligned.txt', gm.aligned_)
+    ## rh aligned to self lh
+    gm_self = GradientMaps(kernel='normalized_angle', approach='dm', n_components=100, random_state=0, alignment='procrustes')
+    gm_self.fit(fc[180:], reference= gm.gradients_, sparsity=thre[i])
+    np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_rh_alignedSelf.txt', gm_self.aligned_)
     # asymmetry 4 patterns
     gm_ref=np.loadtxt('../../results/grad/group_grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_lhlh.txt')
     ## lhlh
@@ -116,18 +121,31 @@ for sub in range(len(sub_list)):
     np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_lhlh_raw.txt', gm.gradients_)
     np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_lhlh_aligned.txt', gm.aligned_)
     ## rhrh
-    gm = GradientMaps(kernel='normalized_angle', approach='dm', n_components=100, random_state=0, alignment='procrustes')
-    gm.fit(fc[180:,180:], reference= gm_ref, sparsity=thre[i])
-    np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_rhrh_raw.txt', gm.gradients_)
-    np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_rhrh_aligned.txt', gm.aligned_)
+    gm_tmp = GradientMaps(kernel='normalized_angle', approach='dm', n_components=100, random_state=0, alignment='procrustes')
+    gm_tmp.fit(fc[180:,180:], reference= gm_ref, sparsity=thre[i])
+    np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_rhrh_raw.txt', gm_tmp.gradients_)
+    np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_rhrh_aligned.txt', gm_tmp.aligned_)
     ## lhrh
-    gm = GradientMaps(kernel='normalized_angle', approach='dm', n_components=100, random_state=0, alignment='procrustes')
-    gm.fit(fc[:180,180:], reference= gm_ref, sparsity=thre[i])
-    np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_lhrh_raw.txt', gm.gradients_)
-    np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_lhrh_aligned.txt', gm.aligned_)
+    gm_tmp = GradientMaps(kernel='normalized_angle', approach='dm', n_components=100, random_state=0, alignment='procrustes')
+    gm_tmp.fit(fc[:180,180:], reference= gm_ref, sparsity=thre[i])
+    np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_lhrh_raw.txt', gm_tmp.gradients_)
+    np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_lhrh_aligned.txt', gm_tmp.aligned_)
     ## rhlh
-    gm = GradientMaps(kernel='normalized_angle', approach='dm', n_components=100, random_state=0, alignment='procrustes')
-    gm.fit(fc[180:,:180], reference= gm_ref, sparsity=thre[i])
-    np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_rhlh_raw.txt', gm.gradients_)
-    np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_rhlh_aligned.txt', gm.aligned_)
+    gm_tmp = GradientMaps(kernel='normalized_angle', approach='dm', n_components=100, random_state=0, alignment='procrustes')
+    gm_tmp.fit(fc[180:,:180], reference= gm_ref, sparsity=thre[i])
+    np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_rhlh_raw.txt', gm_tmp.gradients_)
+    np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_rhlh_aligned.txt', gm_tmp.aligned_)
     print('finish..'+sub_list[sub]+'...mmp...gradients...asymmetry...sparsity_'+str(thre[i]))
+
+    ## rhrh aligned to self
+    gm_self = GradientMaps(kernel='normalized_angle', approach='dm', n_components=100, random_state=0, alignment='procrustes')
+    gm_self.fit(fc[180:,180:], reference= gm.gradients_, sparsity=thre[i])
+    np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_rhrh_alignedSelf.txt', gm.aligned_)
+    ## lhrh aligned to self
+    gm_self = GradientMaps(kernel='normalized_angle', approach='dm', n_components=100, random_state=0, alignment='procrustes')
+    gm_self.fit(fc[:180,180:], reference= gm.gradients_, sparsity=thre[i])
+    np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_lhrh_alignedSelf.txt', gm.aligned_)
+    ## rhlh aligned to self
+    gm_self = GradientMaps(kernel='normalized_angle', approach='dm', n_components=100, random_state=0, alignment='procrustes')
+    gm_self.fit(fc[180:,:180], reference= gm.gradients_, sparsity=thre[i])
+    np.savetxt('../../results/grad/asymmetry/'+sub_list[sub]+'/grad_sparsity_'+str(thre[i])+'_'+space+'_mmp_rhlh_alignedSelf.txt', gm.aligned_)
