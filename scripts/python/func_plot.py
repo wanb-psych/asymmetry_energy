@@ -16,7 +16,7 @@ def plot_surface(data,
                  size,
                  cmap,
                  filename,
-                 surf,
+                 surf, nan_color = (0,0,0,1),
                  display=False, **kwargs):
   if surf=='fsa5':
     lh = lh_fsa5
@@ -29,16 +29,16 @@ def plot_surface(data,
     rh = rh_fsLR_5k  
                    
   if display==False:
-    plot_hemispheres(surf_lh=lh, surf_rh=rh, array_name = data, nan_color = (0,0,0,1),size=size,
-                     cmap = cmap, color_bar = True,
+    plot_hemispheres(surf_lh=lh, surf_rh=rh, array_name = data,size=size,
+                     cmap = cmap, color_bar = True, nan_color = nan_color,
                      interactive = False, zoom = 1.5, embed_nb = True, transparent_bg=True,
                      cb__labelTextProperty={"fontSize": 24}, screenshot=True, filename=filename, **kwargs)
   else: 
-    plot_hemispheres(surf_lh=lh, surf_rh=rh, array_name = data, nan_color = (0,0,0,1),size=size,
-                     cmap = cmap, color_bar = True,
+    plot_hemispheres(surf_lh=lh, surf_rh=rh, array_name = data,size=size,
+                     cmap = cmap, color_bar = True, nan_color = nan_color,
                      interactive = False, zoom = 1.5, embed_nb = True, transparent_bg=True,
                      cb__labelTextProperty={"fontSize": 24}, screenshot=True, filename=filename, **kwargs)
-    fig = plot_hemispheres(surf_lh=lh, surf_rh=rh, array_name = data, nan_color = (0,0,0,1),size = size,
+    fig = plot_hemispheres(surf_lh=lh, surf_rh=rh, array_name = data, nan_color = nan_color,size = size,
                            cmap = cmap, color_bar = True,
                            cb__labelTextProperty={"fontSize": 24}, interactive = False, zoom = 1.5, embed_nb = True, **kwargs)
     return fig
