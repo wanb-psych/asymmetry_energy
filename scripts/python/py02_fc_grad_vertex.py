@@ -58,7 +58,11 @@ print(fc.shape)
 
 ### Gradients
 for i in range(len(thre)):
+<<<<<<< HEAD:scripts/python/py02_fc_grad_vertex.py
   gm = GradientMaps(kernel='normalized_angle', approach=embedding, n_components=2000, random_state=0)
+=======
+  gm = GradientMaps(kernel='normalized_angle', approach='dm', n_components=2000, random_state=0)
+>>>>>>> 4dead57df1f9e27ea561c5a0edaa129180ee6088:scripts/python/py02_fc_group_grad_vertex.py
   gm.fit(fc, sparsity=thre[i])
   np.savetxt('../../results/grad/vertex/group_grad_sparsity_'+str(thre[i])+'_lambdas_fsLR-5k.txt', gm.lambdas_)
   np.savetxt('../../results/grad/vertex/group_grad_sparsity_'+str(thre[i])+'_fsLR-5k.txt', gm.gradients_)
@@ -68,33 +72,57 @@ for i in range(len(thre)):
 for i in range(len(thre)):
   # 2 patterns
   ## lh
+<<<<<<< HEAD:scripts/python/py02_fc_grad_vertex.py
   gm_ref = GradientMaps(kernel='normalized_angle', approach=embedding, n_components=2000, random_state=0)
+=======
+  gm_ref = GradientMaps(kernel='normalized_angle', approach='dm', n_components=2000, random_state=0)
+>>>>>>> 4dead57df1f9e27ea561c5a0edaa129180ee6088:scripts/python/py02_fc_group_grad_vertex.py
   gm_ref.fit(fc[:4428], sparsity=thre[i])
   np.savetxt('../../results/grad/vertex/group_grad_sparsity_'+str(thre[i])+'_lambdas_fsLR-5k_lh.txt', gm_ref.lambdas_)
   np.savetxt('../../results/grad/vertex/group_grad_sparsity_'+str(thre[i])+'_fsLR-5k_lh.txt', gm_ref.gradients_)
   ## rh
+<<<<<<< HEAD:scripts/python/py02_fc_grad_vertex.py
   gm = GradientMaps(kernel='normalized_angle', approach=embedding, n_components=2000, random_state=0, alignment='procrustes')
+=======
+  gm = GradientMaps(kernel='normalized_angle', approach='dm', n_components=2000, random_state=0, alignment='procrustes')
+>>>>>>> 4dead57df1f9e27ea561c5a0edaa129180ee6088:scripts/python/py02_fc_group_grad_vertex.py
   gm.fit(fc[4428:], reference=gm_ref.gradients_, sparsity=thre[i])
   np.savetxt('../../results/grad/vertex/group_grad_sparsity_'+str(thre[i])+'_fsLR-5k_rh_raw.txt', gm.gradients_)
   np.savetxt('../../results/grad/vertex/group_grad_sparsity_'+str(thre[i])+'_fsLR-5k_rh_aligned.txt', gm.aligned_)
   # 4 patterns
   ## lhlh
+<<<<<<< HEAD:scripts/python/py02_fc_grad_vertex.py
   gm_ref = GradientMaps(kernel='normalized_angle', approach=embedding, n_components=2000, random_state=0)
+=======
+  gm_ref = GradientMaps(kernel='normalized_angle', approach='dm', n_components=2000, random_state=0)
+>>>>>>> 4dead57df1f9e27ea561c5a0edaa129180ee6088:scripts/python/py02_fc_group_grad_vertex.py
   gm_ref.fit(fc[:4428,:4428], sparsity=thre[i])
   np.savetxt('../../results/grad/vertex/group_grad_sparsity_'+str(thre[i])+'_lambdas_fsLR-5k_lhlh.txt', gm_ref.lambdas_)
   np.savetxt('../../results/grad/vertex/group_grad_sparsity_'+str(thre[i])+'_fsLR-5k_lhlh.txt', gm_ref.gradients_)
   ## rhrh
+<<<<<<< HEAD:scripts/python/py02_fc_grad_vertex.py
   gm = GradientMaps(kernel='normalized_angle', approach=embedding, n_components=2000, random_state=0, alignment='procrustes')
+=======
+  gm = GradientMaps(kernel='normalized_angle', approach='dm', n_components=2000, random_state=0, alignment='procrustes')
+>>>>>>> 4dead57df1f9e27ea561c5a0edaa129180ee6088:scripts/python/py02_fc_group_grad_vertex.py
   gm.fit(fc[4428:,4428:], reference= gm_ref.gradients_, sparsity=thre[i])
   np.savetxt('../../results/grad/vertex/group_grad_sparsity_'+str(thre[i])+'_fsLR-5k_rhrh_raw.txt', gm.gradients_)
   np.savetxt('../../results/grad/vertex/group_grad_sparsity_'+str(thre[i])+'_fsLR-5k_rhrh_aligned.txt', gm.aligned_)
   ## lhrh
+<<<<<<< HEAD:scripts/python/py02_fc_grad_vertex.py
   gm = GradientMaps(kernel='normalized_angle', approach=embedding, n_components=2000, random_state=0, alignment='procrustes')
+=======
+  gm = GradientMaps(kernel='normalized_angle', approach='dm', n_components=2000, random_state=0, alignment='procrustes')
+>>>>>>> 4dead57df1f9e27ea561c5a0edaa129180ee6088:scripts/python/py02_fc_group_grad_vertex.py
   gm.fit(fc[:4428,4428:], reference= gm_ref.gradients_, sparsity=thre[i])
   np.savetxt('../../results/grad/vertex/group_grad_sparsity_'+str(thre[i])+'_fsLR-5k_lhrh_raw.txt', gm.gradients_)
   np.savetxt('../../results/grad/vertex/group_grad_sparsity_'+str(thre[i])+'_fsLR-5k_lhrh_aligned.txt', gm.aligned_)
   ## rhlh
+<<<<<<< HEAD:scripts/python/py02_fc_grad_vertex.py
   gm = GradientMaps(kernel='normalized_angle', approach=embedding, n_components=2000, random_state=0, alignment='procrustes')
+=======
+  gm = GradientMaps(kernel='normalized_angle', approach='dm', n_components=2000, random_state=0, alignment='procrustes')
+>>>>>>> 4dead57df1f9e27ea561c5a0edaa129180ee6088:scripts/python/py02_fc_group_grad_vertex.py
   gm.fit(fc[4428:,:4428], reference= gm_ref.gradients_, sparsity=thre[i])
   np.savetxt('../../results/grad/vertex/group_grad_sparsity_'+str(thre[i])+'_fsLR-5k_rhlh_raw.txt', gm.gradients_)
   np.savetxt('../../results/grad/vertex/group_grad_sparsity_'+str(thre[i])+'_fsLR-5k_rhlh_aligned.txt', gm.aligned_)
