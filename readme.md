@@ -1,9 +1,11 @@
 # Cortical energy cost of hemispheric functional organization
 
-**Bin Wan, Valentin Riedl,  Gabriel Castrillon, Matthias Kirschner, Sofie L. Valk**.  
+**Bin Wan, Valentin Riedl,  Gabriel Castrillon, Matthias Kirschner, Sofie L. Valk**. 
+
 ![img](summary.png) 
 
 ## Source data
+Raw data can be downloaded from OpenNeuro (https://openneuro.org/datasets/ds004513/versions/1.0.4)
 
 Group-level and individual data have been processed by the scripts below. See directory "./reseults"
 
@@ -13,7 +15,7 @@ Group-level and individual data have been processed by the scripts below. See di
 
 - ./reseults/grad -> functional connectivity gradients using diffusion map embedding
 
-Then above results can be used to model the fitting in the paper.
+Then above results can be reproduced.
 - ./reseults/models -> gradient-energy models, null models, and asymmetry models
 
 
@@ -63,5 +65,11 @@ ipython notebooks to visualize the results
 - Scikit-learn
 - Statsmodel
 
-## Acknowdgements
-- OpenNeuro
+
+## Fundings 
+
+- BW: International Max Planck Research School on Neuroscience of Communication: Function, Structure, and Plasticity (IMPRS NeuroCom). 
+
+- VR: the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation program (ERC Starting Grant, ID 759659). 
+
+- SLV: the Otto Hahn Award at the Max Planck Society and Helmholtz International BigBrain Analytics and Learning Laboratory (HIBALL), supported by the Helmholtz Association’s Initiative and Networking Fund and the Healthy Brains, Healthy Lives initiative at McGill University
