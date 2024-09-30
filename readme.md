@@ -1,6 +1,6 @@
-# Cortical energy cost of hemispheric functional organization
+# Bridging Glucose Metabolism and Intrinsic Functional Organization of the Human Cortex
 
-**Bin Wan, Valentin Riedl,  Gabriel Castrillon, Matthias Kirschner, Sofie L. Valk**. 
+**Bin Wan, Valentin Riedl,  Gabriel Castrillon, Matthias Kirschner, Sofie L. Valk** 
 
 Preprint: https://www.biorxiv.org/content/10.1101/2024.09.26.615152v1
 
