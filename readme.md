@@ -2,8 +2,10 @@
 
 **Bin Wan, Valentin Riedl,  Gabriel Castrillon, Matthias Kirschner, Sofie L. Valk**. 
 
-![img](summary.png) 
+Preprint: https://www.biorxiv.org/content/10.1101/2024.09.26.615152v1
 
+![img](summary.png) 
+S
 ## Source data
 Raw data can be downloaded from OpenNeuro (https://openneuro.org/datasets/ds004513/versions/1.0.4)
 

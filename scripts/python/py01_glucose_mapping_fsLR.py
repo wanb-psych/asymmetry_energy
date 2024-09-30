@@ -1,7 +1,5 @@
 import nibabel as nib
 import numpy as np
-from brainspace.utils.parcellation import map_to_labels
-import func_plot as fp
 
 sub_list=np.loadtxt('../../sub_list.txt',dtype=str)
 
