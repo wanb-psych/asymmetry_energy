@@ -46,8 +46,6 @@ python ./python/py03_null.py
 # When comparing asymmetry alignment between left and right
 python ./python/py04_supplements_alignLH2RH.py
 
-# visualization for vertex level
-python ./python/py04_supplements_vertex.py
 
 ```
 
@@ -59,6 +57,8 @@ ipython notebooks to visualize the results
 `./python/vis02_null.ipynb ` visulizes null model figures. 
 
 `./python/vis03_fitting_invidual_level_mmp.ipynb ` visulizes all the invidual-level result figures.
+
+`./python/vis04_fitting_group_level_ICA.ipynb ` visulizes all the group-level result using ICA, compared to gradients.
 
 
 ## Main dependencies based on Python 3.8
